@@ -79,14 +79,15 @@
         event.preventDefault();
         const activeProducts = document.querySelectorAll(select.all.menuProductsActive);
         for(let activeProduct of activeProducts){
-          if(activeProduct){
-            activeProduct.classList.remove('active');
+          if(activeProduct && activeProduct != thisProduct.element){
+            activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
           }
         }
-        thisProduct.element.classList.add(classNames.menuProduct.wrapperActive);
+        thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
       })
     }
   }
+
   const app = {
     initMenu: function(){
       const thisApp = this;
@@ -116,3 +117,4 @@
 
   app.init();
 }
+
